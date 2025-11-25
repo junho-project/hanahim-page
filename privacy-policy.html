@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>약관 및 정책 - 하나힘</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 100px auto 50px;
+            padding: 2rem;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            position: relative;
+            bottom: -2px;
+        }
+
+        .tab-button:hover {
+            color: #667eea;
+        }
+
+        .tab-button.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #555;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .highlight-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .last-updated {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            text-align: right;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            main {
+                margin: 100px 1rem 2rem;
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .tab-content {
+                padding: 1.5rem;
+            }
+
+            .tab-button {
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">하나힘</a>
+            <ul class="nav-links">
+                <li><a href="index.html">홈</a></li>
+                <li><a href="index.html#about">소개</a></li>
+                <li><a href="index.html#features">특징</a></li>
+                <li><a href="privacy-policy.html">약관 및 정책</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1 class="page-title">약관 및 정책</h1>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-button active" onclick="openTab(event, 'terms')">서비스 이용약관</button>
+            <button class="tab-button" onclick="openTab(event, 'privacy')">개인정보처리방침</button>
+            <button class="tab-button" onclick="openTab(event, 'marketing')">마케팅 활용 방침</button>
+        </div>
+
+        <!-- 서비스 이용약관 -->
+        <div id="terms" class="tab-content active">
+            <h2>서비스 이용약관</h2>
+            <p class="last-updated">시행일자: 2025년 1월 1일</p>
+
+            <div class="highlight-box">
+                <p><strong>하나힘</strong> 서비스 이용약관에 오신 것을 환영합니다. 본 약관은 서비스 이용과 관련된 권리, 의무 및 책임사항을 규정합니다.</p>
+            </div>
+
+            <h3>제1조 (목적)</h3>
+            <p>본 약관은 하나힘(이하 "회사")이 제공하는 서비스의 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.</p>
+
+            <h3>제2조 (정의)</h3>
+            <ul>
+                <li>"서비스"란 회사가 제공하는 모든 온라인 및 모바일 서비스를 의미합니다.</li>
+                <li>"이용자"란 본 약관에 따라 회사가 제공하는 서비스를 이용하는 회원 및 비회원을 말합니다.</li>
+                <li>"회원"이란 회사와 서비스 이용계약을 체결하고 회사가 제공하는 서비스를 이용하는 자를 말합니다.</li>
+                <li>"비회원"이란 회원에 가입하지 않고 회사가 제공하는 서비스를 이용하는 자를 말합니다.</li>
+            </ul>
+
+            <h3>제3조 (약관의 게시와 개정)</h3>
+            <p>회사는 본 약관의 내용을 이용자가 쉽게 알 수 있도록 서비스 초기 화면에 게시합니다.</p>
+            <p>회사는 필요한 경우 관련 법령을 위배하지 않는 범위에서 본 약관을 개정할 수 있습니다.</p>
+            <p>회사가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 제1항의 방식에 따라 그 개정약관의 적용일자 7일 전부터 적용일자 전일까지 공지합니다.</p>
+
+            <h3>제4조 (회원가입)</h3>
+            <p>회원가입은 이용자가 약관의 내용에 대하여 동의를 한 다음 회원가입 신청을 하고 회사가 이러한 신청에 대하여 승낙함으로써 체결됩니다.</p>
+            <p>회원가입 신청 시 제공한 정보는 정확한 정보여야 합니다.</p>
+
+            <h3>제5조 (회원 탈퇴 및 자격 상실)</h3>
+            <p>회원은 언제든지 회사에게 탈퇴를 요청할 수 있으며 회사는 즉시 회원탈퇴를 처리합니다.</p>
+            <p>회원이 다음 각 호의 사유에 해당하는 경우, 회사는 회원자격을 제한 및 정지시킬 수 있습니다:</p>
+            <ul>
+                <li>가입 신청 시 허위 내용을 등록한 경우</li>
+                <li>다른 사람의 서비스 이용을 방해하거나 그 정보를 도용하는 등 전자상거래 질서를 위협하는 경우</li>
+                <li>서비스를 이용하여 법령 또는 본 약관이 금지하거나 공서양속에 반하는 행위를 하는 경우</li>
+            </ul>
+
+            <h3>제6조 (서비스의 제공 및 변경)</h3>
+            <p>회사는 다음과 같은 업무를 수행합니다:</p>
+            <ul>
+                <li>재화 또는 용역에 대한 정보 제공 및 구매계약의 체결</li>
+                <li>구매계약이 체결된 재화 또는 용역의 배송</li>
+                <li>기타 회사가 정하는 업무</li>
+            </ul>
+
+            <h3>제7조 (서비스의 중단)</h3>
+            <p>회사는 컴퓨터 등 정보통신설비의 보수점검, 교체 및 고장, 통신의 두절 등의 사유가 발생한 경우에는 서비스의 제공을 일시적으로 중단할 수 있습니다.</p>
+
+            <h3>제8조 (이용자의 의무)</h3>
+            <p>이용자는 다음 행위를 하여서는 안 됩니다:</p>
+            <ul>
+                <li>신청 또는 변경 시 허위 내용의 등록</li>
+                <li>타인의 정보 도용</li>
+                <li>회사가 게시한 정보의 변경</li>
+                <li>회사가 정한 정보 이외의 정보(컴퓨터 프로그램 등) 등의 송신 또는 게시</li>
+                <li>회사 기타 제3자의 저작권 등 지적재산권에 대한 침해</li>
+                <li>회사 기타 제3자의 명예를 손상시키거나 업무를 방해하는 행위</li>
+                <li>외설 또는 폭력적인 메시지, 화상, 음성, 기타 공서양속에 반하는 정보를 서비스에 공개 또는 게시하는 행위</li>
+            </ul>
+
+            <h3>제9조 (개인정보보호)</h3>
+            <p>회사는 이용자의 개인정보를 보호하기 위하여 관련 법령을 준수하며, 개인정보의 보호 및 사용에 대해서는 별도의 개인정보처리방침을 적용합니다.</p>
+
+            <h3>제10조 (회사의 의무)</h3>
+            <p>회사는 법령과 본 약관이 금지하거나 공서양속에 반하는 행위를 하지 않으며 본 약관이 정하는 바에 따라 지속적이고 안정적으로 서비스를 제공하는 데 최선을 다하여야 합니다.</p>
+
+            <h3>제11조 (분쟁 해결)</h3>
+            <p>회사는 이용자가 제기하는 정당한 의견이나 불만을 반영하고 그 피해를 보상처리하기 위하여 피해보상처리기구를 설치, 운영합니다.</p>
+            <p>본 약관과 관련하여 회사와 이용자 간에 발생한 분쟁에 대해서는 대한민국 법을 적용하며, 본 분쟁으로 인한 소송은 민사소송법상의 관할법원에 제기합니다.</p>
+        </div>
+
+        <!-- 개인정보처리방침 -->
+        <div id="privacy" class="tab-content">
+            <h2>개인정보처리방침</h2>
+            <p class="last-updated">시행일자: 2025년 1월 1일</p>
+
+            <div class="highlight-box">
+                <p><strong>하나힘</strong>은 이용자의 개인정보를 소중히 다루며, 개인정보 보호법 등 관련 법령을 준수하고 있습니다.</p>
+            </div>
+
+            <h3>1. 개인정보의 수집 및 이용 목적</h3>
+            <p>하나힘은 다음과 같은 목적으로 개인정보를 수집 및 이용합니다:</p>
+            <ul>
+                <li>서비스 제공 및 계약의 이행</li>
+                <li>회원 가입 의사 확인 및 회원제 서비스 제공</li>
+                <li>서비스 이용에 따른 본인 확인 및 본인 의사 확인</li>
+                <li>서비스 개선 및 신규 서비스 개발</li>
+                <li>고객 문의 및 불만 처리</li>
+                <li>법령 및 이용약관을 위반하는 회원에 대한 이용 제한 조치</li>
+            </ul>
+
+            <h3>2. 수집하는 개인정보 항목</h3>
+            <table>
+                <tr>
+                    <th>구분</th>
+                    <th>수집 항목</th>
+                    <th>수집 방법</th>
+                </tr>
+                <tr>
+                    <td>필수 항목</td>
+                    <td>이름, 이메일 주소, 비밀번호</td>
+                    <td>회원가입, 서비스 이용</td>
+                </tr>
+                <tr>
+                    <td>선택 항목</td>
+                    <td>전화번호, 주소</td>
+                    <td>회원가입, 서비스 이용</td>
+                </tr>
+                <tr>
+                    <td>자동 수집</td>
+                    <td>IP 주소, 쿠키, 접속 로그, 서비스 이용 기록</td>
+                    <td>서비스 이용 과정에서 자동 수집</td>
+                </tr>
+            </table>
+
+            <h3>3. 개인정보의 보유 및 이용 기간</h3>
+            <p>하나힘은 개인정보 수집 및 이용 목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다.</p>
+            <h4>3.1 회원 정보</h4>
+            <ul>
+                <li>회원 탈퇴 시까지</li>
+            </ul>
+            <h4>3.2 관계 법령에 따른 보존</h4>
+            <ul>
+                <li>계약 또는 청약철회 등에 관한 기록: 5년</li>
+                <li>대금결제 및 재화 등의 공급에 관한 기록: 5년</li>
+                <li>소비자의 불만 또는 분쟁처리에 관한 기록: 3년</li>
+                <li>웹사이트 방문 기록: 3개월</li>
+            </ul>
+
+            <h3>4. 개인정보의 제3자 제공</h3>
+            <p>하나힘은 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다. 다만, 다음의 경우는 예외로 합니다:</p>
+            <ul>
+                <li>이용자가 사전에 동의한 경우</li>
+                <li>법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우</li>
+            </ul>
+
+            <h3>5. 개인정보의 파기</h3>
+            <h4>5.1 파기 절차</h4>
+            <p>이용자가 입력한 정보는 목적 달성 후 별도의 DB에 옮겨져 내부 방침 및 기타 관련 법령에 따라 일정기간 저장된 후 파기됩니다.</p>
+            <h4>5.2 파기 방법</h4>
+            <ul>
+                <li>전자적 파일 형태: 복원이 불가능한 방법으로 영구 삭제</li>
+                <li>종이에 출력된 개인정보: 분쇄기로 분쇄하거나 소각</li>
+            </ul>
+
+            <h3>6. 이용자의 권리</h3>
+            <p>이용자는 언제든지 다음과 같은 권리를 행사할 수 있습니다:</p>
+            <ul>
+                <li>개인정보 조회 및 열람 요구</li>
+                <li>개인정보 수정 요구</li>
+                <li>개인정보 삭제 요구</li>
+                <li>개인정보 처리 정지 요구</li>
+            </ul>
+
+            <h3>7. 개인정보 보호책임자</h3>
+            <ul>
+                <li>담당부서: 하나힘 개인정보보호팀</li>
+                <li>이메일: privacy@hanaim.com</li>
+                <li>전화번호: 02-XXXX-XXXX</li>
+            </ul>
+
+            <h3>8. 개인정보 침해 관련 상담</h3>
+            <ul>
+                <li>개인정보침해신고센터: (국번없이) 118</li>
+                <li>개인정보분쟁조정위원회: 1833-6972</li>
+                <li>대검찰청 사이버범죄수사단: (국번없이) 1301</li>
+                <li>경찰청 사이버안전국: (국번없이) 182</li>
+            </ul>
+        </div>
+
+        <!-- 마케팅 활용 방침 -->
+        <div id="marketing" class="tab-content">
+            <h2>마케팅 활용 방침</h2>
+            <p class="last-updated">시행일자: 2025년 1월 1일</p>
+
+            <div class="highlight-box">
+                <p><strong>하나힘</strong>은 고객의 동의를 기반으로 마케팅 정보를 제공하며, 언제든지 수신을 거부할 수 있습니다.</p>
+            </div>
+
+            <h3>1. 마케팅 정보 활용 목적</h3>
+            <p>하나힘은 다음과 같은 목적으로 고객의 정보를 마케팅에 활용합니다:</p>
+            <ul>
+                <li>신규 서비스 및 이벤트 정보 제공</li>
+                <li>맞춤형 서비스 제공 및 광고 게재</li>
+                <li>프로모션 및 할인 혜택 안내</li>
+                <li>설문조사 및 고객 만족도 조사</li>
+                <li>고객 맞춤형 추천 서비스 제공</li>
+            </ul>
+
+            <h3>2. 마케팅 정보 수신 동의</h3>
+            <p>회사는 다음과 같은 방법으로 마케팅 정보 수신 동의를 받습니다:</p>
+            <ul>
+                <li>회원가입 시 선택 동의 항목으로 제공</li>
+                <li>서비스 이용 중 별도의 동의 절차를 통해 제공</li>
+                <li>프로모션 참여 시 선택적 동의</li>
+            </ul>
+            <p>마케팅 정보 수신은 선택사항이며, 동의하지 않아도 서비스 이용에 제한이 없습니다.</p>
+
+            <h3>3. 마케팅 정보 제공 방법</h3>
+            <p>마케팅 정보는 다음과 같은 방법으로 제공됩니다:</p>
+            <ul>
+                <li>이메일(E-mail)</li>
+                <li>문자 메시지(SMS/MMS)</li>
+                <li>푸시 알림(Push Notification)</li>
+                <li>앱 내 알림</li>
+                <li>우편물 발송</li>
+            </ul>
+
+            <h3>4. 활용하는 정보의 항목</h3>
+            <table>
+                <tr>
+                    <th>구분</th>
+                    <th>활용 항목</th>
+                </tr>
+                <tr>
+                    <td>기본 정보</td>
+                    <td>이름, 이메일, 전화번호, 주소</td>
+                </tr>
+                <tr>
+                    <td>서비스 이용 정보</td>
+                    <td>구매 내역, 관심 카테고리, 서비스 이용 기록</td>
+                </tr>
+                <tr>
+                    <td>맞춤형 정보 제공</td>
+                    <td>선호도, 관심사, 구매 패턴</td>
+                </tr>
+            </table>
+
+            <h3>5. 마케팅 정보 수신 거부 및 철회</h3>
+            <p>고객은 언제든지 다음과 같은 방법으로 마케팅 정보 수신을 거부하거나 철회할 수 있습니다:</p>
+
+            <h4>5.1 수신 거부 방법</h4>
+            <ul>
+                <li>이메일 하단의 '수신거부' 링크 클릭</li>
+                <li>문자 메시지 내 수신거부 방법에 따라 처리</li>
+                <li>고객센터를 통한 수신거부 요청</li>
+                <li>웹사이트 또는 앱 내 설정 메뉴에서 변경</li>
+                <li>마이페이지에서 직접 수신 동의 변경</li>
+            </ul>
+
+            <h4>5.2 처리 기간</h4>
+            <p>수신 거부 요청은 접수 즉시 처리되며, 최대 3영업일 이내에 완료됩니다.</p>
+
+            <h3>6. 개인정보 제3자 제공 및 위탁</h3>
+            <p>회사는 마케팅 정보 제공을 위해 다음과 같이 개인정보를 처리할 수 있습니다:</p>
+
+            <h4>6.1 제3자 제공</h4>
+            <p>원칙적으로 고객의 개인정보를 제3자에게 제공하지 않습니다. 다만, 고객이 사전에 동의한 경우에 한해 제공할 수 있습니다.</p>
+
+            <h4>6.2 업무 위탁</h4>
+            <p>마케팅 정보 발송을 위해 아래와 같이 업무를 위탁할 수 있습니다:</p>
+            <ul>
+                <li>수탁업체: 이메일/SMS 발송 대행사</li>
+                <li>위탁업무: 마케팅 정보 발송</li>
+                <li>보유 및 이용기간: 위탁계약 종료 시까지</li>
+            </ul>
+
+            <h3>7. 마케팅 정보의 보유 및 이용기간</h3>
+            <ul>
+                <li>마케팅 동의 철회 시까지</li>
+                <li>회원 탈퇴 시까지</li>
+                <li>마케팅 동의일로부터 3년 경과 시 재동의 요청</li>
+            </ul>
+
+            <h3>8. 광고성 정보 전송 시간</h3>
+            <p>회사는 정보통신망법에 따라 오후 9시부터 다음날 오전 8시까지는 광고성 정보를 전송하지 않습니다. 단, 고객이 별도로 동의한 경우는 예외로 합니다.</p>
+
+            <h3>9. 아동의 개인정보 보호</h3>
+            <p>회사는 만 14세 미만 아동의 개인정보를 마케팅 목적으로 수집하지 않으며, 만 14세 미만 아동에게 마케팅 정보를 발송하지 않습니다.</p>
+
+            <h3>10. 맞춤형 광고 서비스</h3>
+            <p>회사는 고객의 서비스 이용 패턴을 분석하여 맞춤형 광고를 제공할 수 있습니다.</p>
+            <ul>
+                <li>맞춤형 광고는 고객의 관심사와 구매 이력을 기반으로 제공됩니다</li>
+                <li>고객은 설정 메뉴에서 맞춤형 광고 수신을 거부할 수 있습니다</li>
+                <li>맞춤형 광고를 거부해도 일반 광고는 표시될 수 있습니다</li>
+            </ul>
+
+            <h3>11. 문의 및 불만 처리</h3>
+            <p>마케팅 활용과 관련한 문의 및 불만은 아래로 연락주시기 바랍니다:</p>
+            <ul>
+                <li>이메일: marketing@hanaim.com</li>
+                <li>전화: 02-XXXX-XXXX (평일 09:00-18:00)</li>
+                <li>고객센터: 웹사이트 또는 앱 내 고객센터</li>
+            </ul>
+
+            <h3>12. 방침의 변경</h3>
+            <p>본 마케팅 활용 방침은 법령 및 회사 정책에 따라 변경될 수 있으며, 변경 시 웹사이트 공지사항을 통해 사전 안내합니다.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 하나힘. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="index.html" style="color: white; text-decoration: none; opacity: 0.8;">홈으로 돌아가기</a>
+        </p>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            // 모든 tab-content 숨기기
+            var tabContents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            // 모든 tab-button에서 active 클래스 제거
+            var tabButtons = document.getElementsByClassName("tab-button");
+            for (var i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            // 선택된 탭 보이기
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
